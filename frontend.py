@@ -42,7 +42,7 @@ if st.button("Get Recommendations"):
 st.divider()
 
 st.subheader("Find Similar Movies")
-st.write("Pick any movie and we will find the 10 most similar ones based on genre. This is not personalized — everyone gets the same results for the same movie.")
+st.write("Pick any movie and we will find the 10 most similar ones based on genre. This is not personalized, hence everyone gets the same results for the same movie.")
 selected2 = st.selectbox("Search for a movie", [""] + display_titles, key="similar")
 similar_title = title_mapping.get(selected2, "")
 
