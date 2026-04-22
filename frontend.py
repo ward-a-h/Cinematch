@@ -11,6 +11,7 @@ st.title("CineMatch - Movie Recommendation System")
 st.write("Get personalized movie recommendations!")
 
 st.subheader("Get Recommendations")
+st.write("Enter your user ID and pick a movie you enjoy. Our hybrid algorithm combines your taste with genre similarity to recommend 10 movies you have not seen yet. Results will vary by user.")
 user_id = st.number_input("Enter your User ID (1-943)", min_value=1, max_value=943, value=1)
 selected = st.selectbox("Search for a movie you like", [""] + display_titles)
 movie_title = title_mapping.get(selected, "")
@@ -41,6 +42,7 @@ if st.button("Get Recommendations"):
 st.divider()
 
 st.subheader("Find Similar Movies")
+st.write("Pick any movie and we will find the 10 most similar ones based on genre. This is not personalized — everyone gets the same results for the same movie.")
 selected2 = st.selectbox("Search for a movie", [""] + display_titles, key="similar")
 similar_title = title_mapping.get(selected2, "")
 
