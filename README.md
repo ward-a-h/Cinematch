@@ -33,8 +33,6 @@ Run the frontend in a separate terminal:
 streamlit run frontend.py
 
 ## Team
-Tayaba (24K-0934), Wardah Ahmed (24K-1045), Humna Fatime (23K-1016)
-FAST-NUCES, Spring 2026
 
 Tayaba (24K-0934), Wardah Ahmed (24K-1045), Humna Fatime (23K-1016)
 FAST-NUCES, Spring 2026
