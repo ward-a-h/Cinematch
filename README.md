@@ -64,7 +64,7 @@ Python, FastAPI, Streamlit, SQLite, scikit-learn, SciPy, pandas, TMDB API, Movie
 ## Setup
 
 ```bash
-pip install fastapi uvicorn streamlit requests pandas numpy scikit-learn scipy
+pip install -r requirements.txt
 ```
 
 1. Add your TMDB API key in `AI component/app.py`
