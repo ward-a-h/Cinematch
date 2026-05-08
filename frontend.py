@@ -3,10 +3,30 @@ import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 import requests
+import sqlite3
+import datetime
 
 st.set_page_config(page_title="CineMatch", page_icon="🎬", layout="wide")
 
 TMDB_API_KEY = "003b359044adc636b66d5c783244390d"
+
+def log_to_db(user_id, query_movie, recommendations):
+    try:
+        conn = sqlite3.connect('cinematch.db')
+        cursor = conn.cursor()
+        cursor.execute('''
+            INSERT INTO interaction_logs (user_id, query_movie, recommended_movies, created_at)
+            VALUES (?, ?, ?, ?)
+        ''', (
+            user_id,
+            query_movie,
+            ', '.join(recommendations),
+            datetime.datetime.now()
+        ))
+        conn.commit()
+        conn.close()
+    except Exception as e:
+        print(f"Logging error: {e}")
 
 @st.cache_data
 def load_data():
@@ -131,6 +151,7 @@ if st.button("Get Recommendations"):
         with st.spinner("Finding recommendations..."):
             recs = get_hybrid_recommendations(user_id, movie_title, movies, cosine_sim, user_movie_matrix, user_similarity_df)
         if recs:
+            log_to_db(int(user_id), movie_title, recs)
             st.subheader("We recommend:")
             cols = st.columns(5)
             for i, title in enumerate(recs):

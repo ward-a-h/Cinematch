@@ -4,6 +4,32 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 import requests
 
+import sqlite3
+import datetime
+
+def get_db():
+    conn = sqlite3.connect('cinematch.db')
+    conn.row_factory = sqlite3.Row
+    return conn
+
+def log_to_db(user_id, query_movie, recommendations):
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+        cursor.execute('''
+            INSERT INTO interaction_logs (user_id, query_movie, recommended_movies, created_at)
+            VALUES (?, ?, ?, ?)
+        ''', (
+            user_id,
+            query_movie,
+            ', '.join(recommendations),
+            datetime.datetime.now()
+        ))
+        conn.commit()
+        conn.close()
+    except Exception as e:
+        print(f"Logging error: {e}")
+        
 st.set_page_config(page_title="CineMatch", page_icon="🎬", layout="wide")
 
 TMDB_API_KEY = "003b359044adc636b66d5c783244390d"
