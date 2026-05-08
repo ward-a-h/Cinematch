@@ -79,10 +79,9 @@ The database is pre-populated. To rebuild it from scratch, run all cells in `DB 
 
 ```
 Cinematch/
-├── AI component/     # FastAPI backend, Streamlit frontend, trained models
-├── DB component/     # SQLite database, Jupyter notebook, DB report
-├── reports/          # Final AI report
-└── ml-100k/          # MovieLens 100K dataset
+├── AI component/    # FastAPI backend, Streamlit frontend, trained models, demo, ppt, report
+├── DB component/    # SQLite database, Jupyter notebook, DB report
+└── ml-100k/         # MovieLens 100K dataset
 ```
 ---
 
