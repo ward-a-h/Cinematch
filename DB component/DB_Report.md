@@ -211,10 +211,10 @@ The interaction_logs table was populated at runtime by logging a sample recommen
 
 The Streamlit frontend provides two user-facing features. Get Recommendations takes a user ID and a movie selection and returns 10 personalized recommendations as a poster grid with TMDB ratings. Find Similar Movies returns 10 genre-similar movies for any selected title and is not personalized.
 
-![Get Recommendations Interface](get recommendations interface.png)
+![Get Recommendations Interface](get_recommendations_interface.png)
 *Figure 2: Get Recommendations — User ID input and movie selection*
 
-![Personalized Recommendation Results](personalized recommendation results.png)
+![Personalized Recommendation Results](personalized_recommendation_results.png)
 *Figure 3: Personalized recommendation results displayed as a poster grid*
 
 ![Find Similar Movies Interface](find_similar_movies_interface.png)
